@@ -139,18 +139,20 @@ namespace SeleniumFirst
 
             Thread.Sleep(1000);
             //Navigate to last page
-            //IWebElement LastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
-            //LastPage.Click();
+            IWebElement LastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
+            LastPage.Click();
 
             //Validate the new record
 
             //getting the number of rows.
             IList<IWebElement> row = driver.FindElements(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr"));
-            int rowcount = row.Count;
+            var rowcount = row.Count;
+            Console.WriteLine(rowcount);
+
             //*[@id="tmsGrid"]/div[3]/table/tbody/tr[1]/td[1] 
             //*[@id="tmsGrid"]/div[3]/table/tbody/tr[8]/td[1]
             //*[@id="tmsGrid"]/div[3]/table/tbody/tr[5]/td[1]
-
+          
             String beforeXPath = "//*[@id='tmsGrid']/div[3]/table/tbody/tr[";
             String afterXPath = "]/td[1]";
             for (int i = 1; i <= rowcount; i++)
@@ -161,57 +163,14 @@ namespace SeleniumFirst
                 if (GetText == "neelam1")
                 {
                     Console.WriteLine("The record created successfully..Test Passed ");
-                }
-                else
-                {
-                    
-                    IWebElement arrow = driver.FindElement(By.XPath("//span[@class = 'k-icon k-i-arrow-e']"));
-                    arrow.Click();
-                   // Console.WriteLine("The record is not created sucessfully....Test Failed");
-                }
-                
-            }
-
-            //Edit Details:
-
-            IList<IWebElement> row1 = driver.FindElements(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr"));
-            int rowcount1 = row.Count;
-
-            String beforeXPath1 = "//*[@id='tmsGrid']/div[3]/table/tbody/tr[";
-            String afterXPath1 = "]/td[1]";
-            for (int i = 1; i <= rowcount1; i++)
-            {
-                String actualXPath = beforeXPath1 + i + afterXPath1;
-                IWebElement element = driver.FindElement(By.XPath(actualXPath));
-                String GetText = element.Text;
-                if (GetText == "CodeXXX")
-                {
-                    IWebElement edit = driver.FindElement(By.XPath("//a[@class= 'k-button k-button-icontext k-grid-Edit']"));
-                    edit.Click();
-
-                    String myTitle6 = driver.Title;
-                    if(myTitle6=="Edit - Dispatching System")
-                    {
-                        IWebElement price = driver.FindElement(By.XPath("//input[@class = 'k-formatted-value k-input']"));
-                        price.SendKeys("12");
-                        IWebElement save1 = driver.FindElement(By.Id("SaveButton"));
-                        save1.Click();
-                    }
-                    else { Console.WriteLine("Page Error"); }
                     
                 }
                 else
                 {
-
-                    IWebElement arrow = driver.FindElement(By.XPath("//span[@class = 'k-icon k-i-arrow-e']"));
-                    arrow.Click();
-                    // Console.WriteLine("The record is not created sucessfully....Test Failed");
+                  Console.WriteLine("The record is not created sucessfully....Test Failed");
                 }
-
+               
             }
-           // Validate the change
-
-
-        }
+         }
     } 
 }
