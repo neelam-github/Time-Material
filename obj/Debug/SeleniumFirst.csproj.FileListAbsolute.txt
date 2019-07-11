@@ -19,3 +19,6 @@ C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirs
 C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\WebDriver.Support.xml
 C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\obj\Debug\Interop.AutoItX3Lib.dll
 C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\obj\Debug\SeleniumFirst.csproj.ResolveComReference.cache
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\Newtonsoft.Json.xml
