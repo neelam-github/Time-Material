@@ -40,13 +40,15 @@ namespace SeleniumFirst
             //object for TM page
             TMPage tmpageobj = new TMPage();
             tmpageobj.Create(CommonDriver.driver);
-          
-          }
+            tmpageobj.validate(CommonDriver.driver);
+
+        }
         [Test]
-        public void edit()
+        public void Edit()
         {
             TMPage tmpageobj = new TMPage();
             tmpageobj.Edit(CommonDriver.driver);
+            
         }
         [Test]
         public void Del()
@@ -59,7 +61,7 @@ namespace SeleniumFirst
         [TearDown]
         public void Finish()
         {
-            //CommonDriver.driver.Quit();
+            CommonDriver.driver.Quit();
         }
 
        

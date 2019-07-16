@@ -63,61 +63,68 @@ namespace SeleniumFirst.Pages
             {
                 Console.WriteLine("The testcase passed");
             }
-            else
-            {
-                Console.WriteLine("The test case failed");
-            }
+        }
 
-            Thread.Sleep(1000);
-            //Navigate to last page
-            IWebElement LastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
-            LastPage.Click();
 
-            //Validate the new record
+        //Navigate to last page
+        // IWebElement LastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]"));
+        //LastPage.Click();
 
+        //Validate the new record
+        public void validate(IWebDriver driver)
+        {
+            
             //getting the number of rows.
             IList<IWebElement> row = driver.FindElements(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr"));
             var rowcount = row.Count;
             Console.WriteLine(rowcount);
-
-            //*[@id="tmsGrid"]/div[3]/table/tbody/tr[1]/td[1] 
-            //*[@id="tmsGrid"]/div[3]/table/tbody/tr[8]/td[1]
-            //*[@id="tmsGrid"]/div[3]/table/tbody/tr[5]/td[1]
-
             String beforeXPath = "//*[@id='tmsGrid']/div[3]/table/tbody/tr[";
             String afterXPath = "]/td[1]";
-            for (int i = 1; i <= rowcount; i++)
+            Thread.Sleep(3000);
+            try
             {
-                String actualXPath = beforeXPath + i + afterXPath;
-                IWebElement element = driver.FindElement(By.XPath(actualXPath));
-                String GetText = element.Text;
-                if (GetText == "neelam1")
+                while (true)
                 {
-                    Console.WriteLine("The record created successfully..Test Passed ");
+
+                    for (int i = 1; i <= rowcount; i++)
+                    {
+                        String actualXPath = beforeXPath + i + afterXPath;
+                        IWebElement element = driver.FindElement(By.XPath(actualXPath));
+                        String GetText = element.Text;
+                        if (GetText == "neelam1")
+                        {
+                            Console.WriteLine("The record created successfully..Test Passed ");
+                            return;
+
+                        }
+
+
+                    }
+
+                    IWebElement next = driver.FindElement(By.XPath("//span[@class ='k-icon k-i-arrow-e']"));
+                    next.Click();
 
                 }
-                else
-                {
-                    Console.WriteLine("The record is not created sucessfully....Test Failed");
-                }
-
             }
-
-
-        }
+            catch (Exception)
+            {
+                Console.WriteLine("Test failed");
+            }
+        }   
         public void Edit(IWebDriver driver)
         {
             //Edit Records
             IList<IWebElement> pagination = driver.FindElements(By.XPath("//*[@id='tmsGrid']/div[4]/ul/li"));
             var NoOfPages = pagination.Count;
             Console.WriteLine(NoOfPages);
-            for (var j = 1; j <= NoOfPages; j++)
+            Boolean status = true;
+            if(status==true)
             {
-                String beforePath = "//*[@id='tmsGrid']/div[4]/ul/li[";
-                String afterPath = "]/a";
-                String actual = beforePath + j + afterPath;
-                IWebElement element1 = driver.FindElement(By.XPath(actual));
-                element1.Click();
+                //String beforePath = "//*[@id='tmsGrid']/div[4]/ul/li[";
+                //String afterPath = "]/a";
+                //String actual = beforePath + j + afterPath;
+                //IWebElement element1 = driver.FindElement(By.XPath(actual));
+                //element1.Click();
 
 
                 //getting the number of rows.
@@ -147,8 +154,23 @@ namespace SeleniumFirst.Pages
 
 
                     }
+                    else
+                    {
+                       
+                    }
+                }
+                IWebElement nextpage = driver.FindElement(By.XPath("//span[@class= 'k-icon k-i-arrow-e']"));
+               status = nextpage.Enabled;
+                if (status == false)
+                {
+                    Console.WriteLine("The button is disabled");
+                }
+                else
+                {
+                    nextpage.Click();
                 }
             }
+           
         }
         public void Delete(IWebDriver driver)
         {
