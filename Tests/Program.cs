@@ -24,37 +24,42 @@ namespace SeleniumFirst
             [SetUp]
         public void LogIn()
         {
+            // Populate Data from excel
+            ExcelLib.PopulateInCollection(@"C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\Data\data.xlsx", "TM");
+
             //define driver
             CommonDriver.driver = new ChromeDriver();
             //object for login
-            LogIn loginobj = new LogIn();
-            loginobj.LoginStep(CommonDriver.driver);
+            LogIn loginobj = new LogIn(CommonDriver.driver);
+            loginobj.LoginStep();
 
             //object for Homepage
-            HomePage homepageobj = new HomePage();
-            homepageobj.NavigateTM(CommonDriver.driver);
+            HomePage homepageobj = new HomePage(CommonDriver.driver);
+            homepageobj.NavigateTM();
         }
         [Test]
         public void Create()
         {
             //object for TM page
-            TMPage tmpageobj = new TMPage();
-            tmpageobj.Create(CommonDriver.driver);
-            tmpageobj.validate(CommonDriver.driver);
+            TMPage tmpageobj = new TMPage(CommonDriver.driver);
+            tmpageobj.Create();
+            tmpageobj.validate();
 
         }
         [Test]
         public void Edit()
         {
-            TMPage tmpageobj = new TMPage();
-            tmpageobj.Edit(CommonDriver.driver);
+            TMPage tmpageobj = new TMPage(CommonDriver.driver);
+            tmpageobj.Edit();
+            tmpageobj.ValidateEdit();
             
         }
         [Test]
-        public void Del()
+        public void Delete()
         {
-            TMPage tmpageobj = new TMPage();
-            tmpageobj.Delete(CommonDriver.driver);
+            TMPage tmpageobj = new TMPage(CommonDriver.driver);
+            tmpageobj.Delete();
+            tmpageobj.ValidateDelete();
         }
 
        

@@ -10,8 +10,14 @@ namespace SeleniumFirst.Pages
 {
     class HomePage
     {
+        private IWebDriver driver;
 
-        public void NavigateTM(IWebDriver driver)
+        public HomePage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        public void NavigateTM()
         {
             //Validate the page
             String myTitle2 = driver.Title;

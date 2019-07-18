@@ -15,23 +15,24 @@ namespace SeleniumFirst.Hookup
             //define driver
             CommonDriver.driver = new ChromeDriver();
             //object for login
-            LogIn loginobj = new LogIn();
-            loginobj.LoginStep(CommonDriver.driver);
+            LogIn loginobj = new LogIn(CommonDriver.driver);
+            loginobj.LoginStep();
         }
         
         [Given(@"I have navigated to the Time and Material page")]
         public void GivenIHaveNavigatedToTheTimeAndMaterialPage()
         {
-            HomePage homepageobj = new HomePage();
-            homepageobj.NavigateTM(CommonDriver.driver);
+            HomePage homepageobj = new HomePage(CommonDriver.driver);
+            homepageobj.NavigateTM();
         }
         
         [Then(@"I would be able to create a time record with valid details sucessfully")]
         public void ThenIWouldBeAbleToCreateATimeRecordWithValidDetailsSucessfully()
         {
             //object for TM page
-            TMPage tmpageobj = new TMPage();
-            tmpageobj.Create(CommonDriver.driver);
+            TMPage tmpageobj = new TMPage(CommonDriver.driver);
+            tmpageobj.Create();
+            tmpageobj.Edit();
 
         }
     }

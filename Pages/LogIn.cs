@@ -10,38 +10,45 @@ namespace SeleniumFirst.Pages
 {
     class LogIn
     {
-        public void LoginStep(IWebDriver driver)
+        private IWebDriver driver;
+
+        public LogIn(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        IWebElement username => driver.FindElement(By.Id("UserName"));
+        IWebElement password => driver.FindElement(By.Id("Password"));
+        IWebElement login => driver.FindElement(By.XPath("//input[@type='submit']"));
+       
+
+        public void LoginStep()
         {
            
           
         //Maximize the window
         driver.Manage().Window.Maximize();
             //Enter the URL
-            driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login");
+            // driver.Navigate().GoToUrl("http://horse-dev.azurewebsites.net/Account/Login");
+            driver.Navigate().GoToUrl(ExcelLib.ReadData(2, "url"));
 
-        //Validate the page
-        String myTitle1 = driver.Title;
-        Console.WriteLine(myTitle1);
+            //Validate the page
+            String myTitle1 = driver.Title;
+            Console.WriteLine(myTitle1);
             Assert.That(myTitle1, Is.EqualTo("Log In - Dispatching System"));
-                
-           // if (myTitle1 == "Log In - Dispatching System")
-            //{
-              //  Console.WriteLine("The testcase passed");
-            //}
-            //else
-            //{
-              //  Console.WriteLine("The test case failed");
-            //}
 
-//Enter Username
-IWebElement username = driver.FindElement(By.Id("UserName"));
-username.SendKeys("hari");
+            //Enter Username
+            //username.SendKeys("hari");
+            username.SendKeys(ExcelLib.ReadData(2, "username"));  
+
+
             //Enter password
-            IWebElement password = driver.FindElement(By.Id("Password"));
-password.SendKeys("123123");
+
+            //password.SendKeys("123123");
+            password.SendKeys(ExcelLib.ReadData(2, "password"));
             //Click on Login
-            IWebElement login = driver.FindElement(By.XPath("//input[@type='submit']"));
-login.Click();
+
+            login.Click();
 
         }
     }

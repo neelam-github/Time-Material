@@ -22,3 +22,9 @@ C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirs
 C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\TechTalk.SpecFlow.dll
 C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\ExcelDataReader.dll
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\ExcelDataReader.pdb
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\ExcelDataReader.xml
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\Neelam\Documents\Visual Studio 2019\Projects\SeleniumFirst\SeleniumFirst\bin\Debug\ExcelDataReader.DataSet.xml
